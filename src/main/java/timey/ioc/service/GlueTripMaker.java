@@ -1,20 +1,19 @@
 package timey.ioc.service;
 
-import timey.ioc.domen.Evgen;
-import timey.ioc.domen.GlueShop;
-import timey.ioc.domen.Monolith;
-import timey.ioc.domen.Oma;
-import timey.ioc.domen.Toxic;
+import timey.ioc.domain.GlueShop;
+import timey.ioc.domain.SuperMonolith;
+import timey.ioc.domain.Toxic;
+import timey.ioc.ioc.ObjectFactory;
 
 public class GlueTripMaker {
 
-    private final Toxic toxic = new Evgen();
-    private final GlueShop shop = new Oma();
+    private final Toxic toxic = ObjectFactory.getInstance().createObject(Toxic.class);
+    private final GlueShop shop = ObjectFactory.getInstance().createObject(GlueShop.class);
     private final int tubesNumber = 3;
 
     public void makeATrip() {
         for (int i = 0; i < 10; i++) {
-            shop.addGlue(new Monolith(i));
+            shop.addGlue(new SuperMonolith(i));
         }
         toxic.sayHello();
         toxic.buyGlue(tubesNumber, shop);

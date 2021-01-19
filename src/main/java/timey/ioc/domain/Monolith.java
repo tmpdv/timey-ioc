@@ -1,4 +1,4 @@
-package timey.ioc.domen;
+package timey.ioc.domain;
 
 public class Monolith implements Glue {
 

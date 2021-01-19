@@ -1,4 +1,4 @@
-package timey.ioc.domen;
+package timey.ioc.domain;
 
 import java.util.ArrayList;
 import java.util.List;

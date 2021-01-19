@@ -1,4 +1,4 @@
-package timey.ioc.domen;
+package timey.ioc.domain;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -16,8 +16,10 @@ public class Oma implements GlueShop {
     }
 
     @Override
-    public void addGlue(Monolith glue) {
-        monolithTubes.add(glue);
+    public void addGlue(Glue glue) {
+        if (glue instanceof Monolith) {
+            monolithTubes.add((Monolith) glue);
+        }
     }
 
     public Set<Glue> sellGlue(int number) {
