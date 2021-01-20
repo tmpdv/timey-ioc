@@ -10,6 +10,8 @@ public class Oma implements GlueShop {
 
     private final List<Monolith> monolithTubes = new ArrayList<>();
 
+    private String advertising;
+
     @Override
     public int getGlueTubesNumber() {
         return monolithTubes.size();
@@ -32,6 +34,7 @@ public class Oma implements GlueShop {
             tubesToSale.add(tube);
             monolithTubes.remove(0);
         }
+        System.out.println(advertising);
         return tubesToSale;
     }
 }

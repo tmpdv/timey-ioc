@@ -1,4 +1,7 @@
-package timey.ioc.ioc;
+package timey.ioc.ioc.factory;
+
+import timey.ioc.ioc.config.Config;
+import timey.ioc.ioc.config.PropertyConfig;
 
 import java.lang.reflect.InvocationTargetException;
 

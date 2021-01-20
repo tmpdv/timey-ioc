@@ -1,4 +1,4 @@
-package timey.ioc.ioc;
+package timey.ioc.ioc.config;
 
 import org.reflections.Reflections;
 

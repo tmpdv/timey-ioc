@@ -3,7 +3,7 @@ package timey.ioc.service;
 import timey.ioc.domain.GlueShop;
 import timey.ioc.domain.SuperMonolith;
 import timey.ioc.domain.Toxic;
-import timey.ioc.ioc.ObjectFactory;
+import timey.ioc.ioc.factory.ObjectFactory;
 
 public class GlueTripMaker {
 

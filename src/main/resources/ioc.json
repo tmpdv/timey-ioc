@@ -1,0 +1,13 @@
+{
+  "packagesToScan": ["timey.ioc.domain"],
+
+  "beans": [
+    {
+      "ifc": "GlueShop",
+      "impl": "Oma",
+      "values": {
+        "advertising": "Монолит, Монолит - самый лучший клей! Ты в пакет его залей, нюхай и балдей!"
+      }
+    }
+  ]
+}
