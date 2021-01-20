@@ -1,7 +1,6 @@
 package timey.ioc.ioc.config;
 
 import org.reflections.Reflections;
-import org.reflections.scanners.SubTypesScanner;
 import timey.ioc.annotation.Bean;
 import timey.ioc.ioc.reader.ContextDefinition;
 import timey.ioc.ioc.reader.JsonDefinitionReader;
@@ -16,14 +15,12 @@ import java.util.stream.Stream;
 @SuppressWarnings("rawtypes")
 public class JsonConfig implements Config {
 
-    private final ContextDefinition contextDefinition;
     private final Reflections scanner;
     private final Map<String, Class> classes;
     private final Map<String, Class> interfaces;
     private final Map<Class, Class> interfaceToImplMap = new HashMap<>();
 
-    public JsonConfig(String fileName) {
-        this.contextDefinition = new JsonDefinitionReader().readDefinition(fileName);
+    public JsonConfig(ContextDefinition contextDefinition) {
         this.scanner = new Reflections(contextDefinition.getPackageToScan());
 
         Set<Class<?>> allTypes = scanner.getTypesAnnotatedWith(Bean.class);
