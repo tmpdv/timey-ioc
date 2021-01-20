@@ -1,7 +1,7 @@
 package timey.ioc.ioc.factory;
 
 import timey.ioc.ioc.config.Config;
-import timey.ioc.ioc.config.PropertyConfig;
+import timey.ioc.ioc.config.JsonConfig;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -12,7 +12,7 @@ public class ObjectFactory {
     private final Config config;
 
     public ObjectFactory() {
-        config = new PropertyConfig("ioc.properties");
+        config = new JsonConfig("ioc.json");
     }
 
     public static ObjectFactory getInstance() {

@@ -1,5 +1,6 @@
 package timey.ioc.domain;
 
+
 public class SuperMonolith implements Glue {
 
     public SuperMonolith(Integer id) {

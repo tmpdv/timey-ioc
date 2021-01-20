@@ -1,7 +1,7 @@
 package timey.ioc.service;
 
 import timey.ioc.domain.GlueShop;
-import timey.ioc.domain.SuperMonolith;
+import timey.ioc.domain.Monolith;
 import timey.ioc.domain.Toxic;
 import timey.ioc.ioc.factory.ObjectFactory;
 
@@ -13,7 +13,7 @@ public class GlueTripMaker {
 
     public void makeATrip() {
         for (int i = 0; i < 10; i++) {
-            shop.addGlue(new SuperMonolith(i));
+            shop.addGlue(new Monolith(i));
         }
         toxic.sayHello();
         toxic.buyGlue(tubesNumber, shop);

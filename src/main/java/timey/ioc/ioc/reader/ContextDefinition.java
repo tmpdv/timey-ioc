@@ -6,6 +6,6 @@ import java.util.Set;
 
 @Data
 public class ContextDefinition {
-    private Set<String> packagesToScan;
+    private String packageToScan;
     private Set<BeanDefinition> beans;
 }

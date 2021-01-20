@@ -1,10 +1,13 @@
 package timey.ioc.domain;
 
+import timey.ioc.annotation.Bean;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Bean
 public class Cosmonaut5 implements GlueShop {
 
     private final List<SuperMonolith> superMonolithTubes = new ArrayList<>();

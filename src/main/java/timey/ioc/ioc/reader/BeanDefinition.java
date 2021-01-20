@@ -8,5 +8,6 @@ import java.util.Map;
 public class BeanDefinition {
     private String ifc;
     private String impl;
+    private String name;
     private Map<String, String> values;
 }
