@@ -1,5 +1,5 @@
 {
-  "packageToScan": "timey.ioc.domain",
+  "packageToScan": "timey.ioc",
 
   "beans": [
     {

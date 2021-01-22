@@ -1,5 +1,6 @@
 package timey.ioc.ioc.config;
 
+import lombok.Getter;
 import org.reflections.Reflections;
 
 import java.io.IOException;
@@ -11,6 +12,8 @@ import java.util.Set;
 public class PropertyConfig implements Config {
 
     private final Properties properties;
+
+    @Getter
     private final Reflections scanner;
 
     public PropertyConfig(String propertiesFileName) {

@@ -1,5 +1,6 @@
 package timey.ioc.ioc.config;
 
+import lombok.Getter;
 import org.reflections.Reflections;
 
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.Set;
 @SuppressWarnings("rawtypes")
 public class JavaConfig implements Config {
 
+    @Getter
     private final Reflections scanner;
     private final Map<Class, Class> interfaceToImplMap;
 

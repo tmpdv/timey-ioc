@@ -1,9 +1,9 @@
 package timey.ioc.ioc.config;
 
+import lombok.Getter;
 import org.reflections.Reflections;
 import timey.ioc.annotation.Bean;
 import timey.ioc.ioc.reader.ContextDefinition;
-import timey.ioc.ioc.reader.JsonDefinitionReader;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,14 +13,16 @@ import java.util.stream.Stream;
 
 
 @SuppressWarnings("rawtypes")
-public class JsonConfig implements Config {
+public class IocConfig implements Config {
 
+    @Getter
     private final Reflections scanner;
+
     private final Map<String, Class> classes;
     private final Map<String, Class> interfaces;
     private final Map<Class, Class> interfaceToImplMap = new HashMap<>();
 
-    public JsonConfig(ContextDefinition contextDefinition) {
+    public IocConfig(ContextDefinition contextDefinition) {
         this.scanner = new Reflections(contextDefinition.getPackageToScan());
 
         Set<Class<?>> allTypes = scanner.getTypesAnnotatedWith(Bean.class);
