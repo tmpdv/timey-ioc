@@ -1,6 +1,7 @@
 package timey.ioc.domain;
 
-import timey.ioc.annotation.Bean;
+import timey.ioc.annotation.InjectValue;
+import timey.ioc.annotation.Singleton;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -8,11 +9,12 @@ import java.util.List;
 import java.util.Set;
 
 
-@Bean
+@Singleton
 public class Oma implements GlueShop {
 
     private final List<Monolith> monolithTubes = new ArrayList<>();
 
+    @InjectValue
     private String advertising;
 
     @Override

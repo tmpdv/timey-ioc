@@ -2,51 +2,26 @@ package timey.ioc.ioc.config;
 
 import lombok.Getter;
 import org.reflections.Reflections;
-import timey.ioc.annotation.Bean;
+import timey.ioc.ioc.reader.BeanDefinition;
 import timey.ioc.ioc.reader.ContextDefinition;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
-@SuppressWarnings("rawtypes")
 public class IocConfig implements Config {
 
     @Getter
     private final Reflections scanner;
-
-    private final Map<String, Class> classes;
-    private final Map<String, Class> interfaces;
-    private final Map<Class, Class> interfaceToImplMap = new HashMap<>();
+    @Getter
+    private final Set<BeanDefinition> beanDefinitions;
 
     public IocConfig(ContextDefinition contextDefinition) {
         this.scanner = new Reflections(contextDefinition.getPackageToScan());
-
-        Set<Class<?>> allTypes = scanner.getTypesAnnotatedWith(Bean.class);
-
-        this.classes = allTypes.stream().filter(c -> !c.isInterface())
-                .collect(Collectors.toMap(Class::getSimpleName, c -> c));
-        this.interfaces = classes.values().stream().map(Class::getInterfaces)
-                .flatMap(Stream::of).distinct()
-                .collect(Collectors.toMap(Class::getSimpleName, c -> c));
-
-        contextDefinition.getBeans().forEach(b ->
-                interfaceToImplMap.put(interfaces.get(b.getIfc()), classes.get(b.getImpl()))
-        );
+        this.beanDefinitions = contextDefinition.getBeans();
     }
 
     @Override
-    @SuppressWarnings("unchecked")
-    public <T> Class<? extends T> getImplClass(Class<T> type) {
-        return interfaceToImplMap.computeIfAbsent(type, c -> {
-            Set<Class<? extends T>> classes = scanner.getSubTypesOf(type);
-            if (classes.size() != 1) {
-                throw new RuntimeException(type + "has 0 or more than 1 implementations");
-            }
-            return classes.iterator().next();
-        });
+    public <T> Set<Class<? extends T>> getImplClasses(Class<T> type) {
+        return scanner.getSubTypesOf(type);
     }
 }

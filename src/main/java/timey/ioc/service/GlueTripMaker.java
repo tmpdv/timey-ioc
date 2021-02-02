@@ -1,14 +1,19 @@
 package timey.ioc.service;
 
+import timey.ioc.annotation.InjectBean;
+import timey.ioc.annotation.Singleton;
 import timey.ioc.domain.GlueShop;
 import timey.ioc.domain.Monolith;
 import timey.ioc.domain.Toxic;
-import timey.ioc.ioc.factory.ObjectFactory;
 
+@Singleton
 public class GlueTripMaker {
 
-    private final Toxic toxic = ObjectFactory.getInstance().createObject(Toxic.class);
-    private final GlueShop shop = ObjectFactory.getInstance().createObject(GlueShop.class);
+    @InjectBean
+    private Toxic toxic;
+    @InjectBean("Oma")
+    private GlueShop shop;
+
     private final int tubesNumber = 3;
 
     public void makeATrip() {

@@ -1,11 +1,11 @@
 package timey.ioc.domain;
 
-import timey.ioc.annotation.Bean;
+import timey.ioc.annotation.Singleton;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Bean
+@Singleton
 public class Evgen implements Toxic {
 
     private final List<Glue> glueTubes = new ArrayList<>();
