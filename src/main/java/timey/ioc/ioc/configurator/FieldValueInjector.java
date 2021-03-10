@@ -1,12 +1,12 @@
 package timey.ioc.ioc.configurator;
 
 import lombok.SneakyThrows;
+import org.reflections.ReflectionUtils;
 import timey.ioc.annotation.InjectValue;
 import timey.ioc.ioc.ApplicationContext;
 import timey.ioc.ioc.reader.BeanDefinition;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -17,7 +17,7 @@ public class FieldValueInjector implements BeanConfigurator {
     public void configure(Object bean, String beanName, ApplicationContext applicationContext) {
         Class<?> implClass = bean.getClass();
 
-        Set<Field> annotatedFields = Arrays.stream(implClass.getDeclaredFields())
+        Set<Field> annotatedFields = ReflectionUtils.getAllFields(implClass).stream()
                 .filter(field -> field.isAnnotationPresent(InjectValue.class))
                 .collect(Collectors.toSet());
         if (annotatedFields.isEmpty()) {
