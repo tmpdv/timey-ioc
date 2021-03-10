@@ -1,6 +1,7 @@
 package timey.ioc.ioc.configurator;
 
 import lombok.SneakyThrows;
+import org.reflections.ReflectionUtils;
 import timey.ioc.annotation.InjectBean;
 import timey.ioc.ioc.ApplicationContext;
 
@@ -11,7 +12,7 @@ public class FieldBeanInjector implements BeanConfigurator {
     @Override
     @SneakyThrows
     public void configure(Object bean, String beanName, ApplicationContext context) {
-        for (Field field : bean.getClass().getDeclaredFields()) {
+        for (Field field : ReflectionUtils.getAllFields(bean.getClass())) {
             if (field.isAnnotationPresent(InjectBean.class)) {
                 field.setAccessible(true);
 
