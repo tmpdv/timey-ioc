@@ -2,7 +2,7 @@ package timey.ioc.ioc.configurator;
 
 import lombok.SneakyThrows;
 import org.reflections.ReflectionUtils;
-import timey.ioc.annotation.InjectBean;
+import timey.ioc.ioc.annotation.InjectBean;
 import timey.ioc.ioc.ApplicationContext;
 
 import java.lang.reflect.Field;

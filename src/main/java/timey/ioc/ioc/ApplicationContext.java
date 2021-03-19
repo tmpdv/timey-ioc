@@ -2,7 +2,7 @@ package timey.ioc.ioc;
 
 import lombok.Getter;
 import lombok.Setter;
-import timey.ioc.annotation.Singleton;
+import timey.ioc.ioc.annotation.Singleton;
 import timey.ioc.ioc.config.Config;
 import timey.ioc.ioc.factory.BeanFactory;
 

@@ -1,7 +1,7 @@
 package timey.ioc.service;
 
-import timey.ioc.annotation.InjectBean;
-import timey.ioc.annotation.Singleton;
+import timey.ioc.ioc.annotation.InjectBean;
+import timey.ioc.ioc.annotation.Singleton;
 import timey.ioc.domain.GlueShop;
 import timey.ioc.domain.Monolith;
 import timey.ioc.domain.Toxic;

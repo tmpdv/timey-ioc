@@ -1,6 +1,6 @@
 package timey.ioc.domain;
 
-import timey.ioc.annotation.Singleton;
+import timey.ioc.ioc.annotation.Singleton;
 
 import java.util.ArrayList;
 import java.util.HashSet;

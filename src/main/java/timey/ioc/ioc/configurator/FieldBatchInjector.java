@@ -1,7 +1,7 @@
 package timey.ioc.ioc.configurator;
 
 import org.reflections.ReflectionUtils;
-import timey.ioc.annotation.InjectBatch;
+import timey.ioc.ioc.annotation.InjectBatch;
 import timey.ioc.ioc.ApplicationContext;
 
 import java.lang.reflect.Field;
